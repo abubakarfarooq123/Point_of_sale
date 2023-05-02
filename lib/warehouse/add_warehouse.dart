@@ -7,11 +7,14 @@ enum MenuItem{
   item1,
   item2,
 }
-class Add_Suppliers extends StatefulWidget {
+class Add_Warehouse extends StatefulWidget {
   @override
-  State<Add_Suppliers> createState() => _Add_SuppliersState();
+  State<Add_Warehouse> createState() => _Add_WarehouseState();
 }
-class _Add_SuppliersState extends State<Add_Suppliers> {
+class _Add_WarehouseState extends State<Add_Warehouse> {
+  List<String> gender =['Male','Female','N/A'];
+  String selected = '';
+  var setvalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +22,7 @@ class _Add_SuppliersState extends State<Add_Suppliers> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Add New Supplier",
+          "Add New Warehouse",
           style: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 25,
@@ -85,56 +88,20 @@ class _Add_SuppliersState extends State<Add_Suppliers> {
                     padding: const EdgeInsets.all(18.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Company Name',
+                        hintText: 'Warehouse Title',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey,width: 1),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         icon: Icon(
-                          FontAwesomeIcons.building,
+                          FontAwesomeIcons.house,
                           color: Colors.blue,
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Name',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey,width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        icon: Icon(
-                          FontAwesomeIcons.user,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Email ID',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey,width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        errorStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 15.0,
-                        ),
-                        icon: Icon(
-                          FontAwesomeIcons.envelope,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18,right: 18,bottom: 18),
+                    padding: const EdgeInsets.only(left: 18,right: 18,bottom: 18,top: 18),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
@@ -255,71 +222,6 @@ class _Add_SuppliersState extends State<Add_Suppliers> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Previous Balance Due',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey,width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        errorStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 15.0,
-                        ),
-                        icon: Icon(
-                          FontAwesomeIcons.cashRegister,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        hintText: 'Agency Name',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey,width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        errorStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 15.0,
-                        ),
-                        icon: Icon(
-                          Icons.supervised_user_circle_outlined,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      minLines: 5,
-                      maxLines: null,
-                      decoration: InputDecoration(
-                        hintText: 'Comments',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey,width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        errorStyle: TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 15.0,
-                        ),
-                        icon: Icon(
-                          Icons.comment,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-
                   SizedBox(height: 20,),
                   // ignore: deprecated_member_use
                   Container(

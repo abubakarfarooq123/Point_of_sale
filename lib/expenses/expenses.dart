@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pos/expenses/add_expenses.dart';
 import 'package:pos/home/drawer.dart';
 import 'package:pos/items/brand/add_brand.dart';
 import 'package:pos/user/edit_profile.dart';
+
 
 enum MenuItem{
   item1,
   item2,
 }
 
-class Brand extends StatefulWidget {
-  const Brand({Key? key}) : super(key: key);
+class Expenses extends StatefulWidget {
+  const Expenses({Key? key}) : super(key: key);
 
   @override
-  State<Brand> createState() => _BrandState();
+  State<Expenses> createState() => _ExpensesState();
 }
 
-class _BrandState extends State<Brand> {
+class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class _BrandState extends State<Brand> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Brand",
+          "Expenses",
           style: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 25,
@@ -140,87 +142,94 @@ class _BrandState extends State<Brand> {
 
                 ],
               ),
-
-              DataTable(
-                  columnSpacing: 11,
-                  headingRowColor: MaterialStateColor.resolveWith((states) {return Colors.blue;},),
-                  // border: TableBorder(
-                  //   borderRadius: BorderRadius.circular(20),
-                  // ),
-                  dividerThickness: 3,
-                  showBottomBorder: true,
-                  columns: [
-                    DataColumn(
-                      label: Text('Title',style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
+              SizedBox(
+                height: 20,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: DataTable(
+                    columnSpacing: 21,
+                    headingRowColor: MaterialStateColor.resolveWith((states) {return Colors.blue;},),
+                    // border: TableBorder(
+                    //   borderRadius: BorderRadius.circular(20),
+                    // ),
+                    dividerThickness: 3,
+                    showBottomBorder: true,
+                    columns: [
+                      DataColumn(
+                        label: Text('Date',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                         ),
                       ),
-                    ),
-                    DataColumn(
-                      label: Text('No. of Products',style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      DataColumn(
+                        label: Text('Amount',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
                       ),
+                      DataColumn(
+                        label: Text('Category',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
                       ),
-                    ),
-                    DataColumn(label: Text(""),),
-                  ],
-                  rows: [
+                      DataColumn(
+                        label: Text('Notes',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
+                      ),
 
-                    DataRow(cells: [
-                      DataCell(Text('Ace'),
+                      DataColumn(label: Text(""),),
+                    ],
+                    rows: [
+
+                      DataRow(cells: [
+                        DataCell(Text('2023-03-10'),
+                        ),
+                        DataCell(Text('10.0'),
+                        ),
+                        DataCell(Text('Loader'),
+                        ),
+                        DataCell(Text('Loader of PUR#1'),
+                        ),
+                        DataCell( Row(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
+                          ],
+                        ),),]
                       ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('3'),
+                      DataRow(cells: [
+                        DataCell(Text('2023-04-30'),
+                        ),
+                        DataCell(Text('20.0'),
+                        ),
+                        DataCell(Text('Loader1'),
+                        ),
+                        DataCell(Text('Loader of PUR#2'),
+                        ),
+                        DataCell( Row(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
+                          ],
+                        ),),]
                       ),
-                      ),DataCell( Row(
-    children: [
-    IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-    SizedBox(
-    width: 5,
-    ),
-    IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-    ],
-    ),),]),
-                    DataRow(cells: [
-                      DataCell(Text('Hush Puppies'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('4'),
-                      ),
-                      ),
-                      DataCell( Row(
-                        children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-                        ],
-                      ),),
+
                     ]),
-                    DataRow(cells: [
-                      DataCell(Text('Engine'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('7'),
-                      ),
-                      ),
-                      DataCell( Row(
-                        children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-                        ],
-                      ),),
-                    ]),
-                  ]),
+              ),
             ],
           )
       ),
@@ -229,7 +238,7 @@ class _BrandState extends State<Brand> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Add_brand()));
+                  builder: (context) => Add_Expenses()));
 
         },
         backgroundColor: Colors.blue,

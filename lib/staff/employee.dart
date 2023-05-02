@@ -185,7 +185,7 @@ class _EmployeeState extends State<Employee> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => Add_User()));

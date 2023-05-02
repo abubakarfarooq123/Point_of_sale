@@ -443,7 +443,7 @@ class _SuppliersState extends State<Suppliers> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => Add_Suppliers()));

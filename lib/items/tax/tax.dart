@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/home/drawer.dart';
 import 'package:pos/items/brand/add_brand.dart';
+import 'package:pos/items/discount/add_discount.dart';
 import 'package:pos/user/edit_profile.dart';
 
 enum MenuItem{
@@ -10,14 +11,14 @@ enum MenuItem{
   item2,
 }
 
-class Brand extends StatefulWidget {
-  const Brand({Key? key}) : super(key: key);
+class Tax extends StatefulWidget {
+  const Tax({Key? key}) : super(key: key);
 
   @override
-  State<Brand> createState() => _BrandState();
+  State<Tax> createState() => _TaxState();
 }
 
-class _BrandState extends State<Brand> {
+class _TaxState extends State<Tax> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class _BrandState extends State<Brand> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Brand",
+          "Tax",
           style: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 25,
@@ -142,23 +143,27 @@ class _BrandState extends State<Brand> {
               ),
 
               DataTable(
-                  columnSpacing: 11,
+                  columnSpacing: 31,
                   headingRowColor: MaterialStateColor.resolveWith((states) {return Colors.blue;},),
-                  // border: TableBorder(
-                  //   borderRadius: BorderRadius.circular(20),
-                  // ),
                   dividerThickness: 3,
                   showBottomBorder: true,
                   columns: [
                     DataColumn(
-                      label: Text('Title',style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                        ),
+                      label: Text('Lable',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                      ),
                       ),
                     ),
                     DataColumn(
-                      label: Text('No. of Products',style: GoogleFonts.roboto(
+                      label: Text('Amount',style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text('Type',style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -169,28 +174,13 @@ class _BrandState extends State<Brand> {
                   rows: [
 
                     DataRow(cells: [
-                      DataCell(Text('Ace'),
+                      DataCell(Text('Less'),
                       ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('3'),
+                      DataCell(Text('10'),
+
+
                       ),
-                      ),DataCell( Row(
-    children: [
-    IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-    SizedBox(
-    width: 5,
-    ),
-    IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-    ],
-    ),),]),
-                    DataRow(cells: [
-                      DataCell(Text('Hush Puppies'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('4'),
-                      ),
+                      DataCell(Text('Amount'),
                       ),
                       DataCell( Row(
                         children: [
@@ -200,36 +190,17 @@ class _BrandState extends State<Brand> {
                           ),
                           IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
                         ],
-                      ),),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Text('Engine'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('7'),
-                      ),
-                      ),
-                      DataCell( Row(
-                        children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-                        ],
-                      ),),
-                    ]),
+                      ),),]),
                   ]),
             ],
           )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Add_brand()));
+                  builder: (context) => Add_discount()));
 
         },
         backgroundColor: Colors.blue,

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,12 +5,20 @@ import 'package:pos/home/home_screen.dart';
 import 'package:pos/items/brand/brand.dart';
 import 'package:pos/items/category.dart';
 import 'package:pos/items/discount/discount.dart';
-import 'package:pos/items/units/units.dart';
 import 'package:pos/purchase/purchase.dart';
+import 'package:pos/sales/quotation.dart';
 import 'package:pos/staff/customer.dart';
 import 'package:pos/staff/employee.dart';
 import 'package:pos/staff/suppliers.dart';
 import 'package:pos/items/product/product.dart';
+import 'package:pos/items/tax/tax.dart';
+
+import '../category/category.dart';
+import '../expenses/expenses.dart';
+import '../inventory/inventory.dart';
+import '../sales/sales.dart';
+import '../settings/setting.dart';
+import '../warehouse/warehouse.dart';
 
 class MyDrawer extends StatefulWidget {
   @override
@@ -33,7 +40,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 leading: Icon(FontAwesomeIcons.dashboard),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => HomeScreen()));
@@ -77,7 +84,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 leading: Icon(FontAwesomeIcons.user),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => Customer()));
@@ -100,7 +107,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     leading: Icon(FontAwesomeIcons.cube),
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Product()));
@@ -113,7 +120,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     leading: Icon(Icons.category),
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Category_name()));
@@ -128,7 +135,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     leading: Icon(FontAwesomeIcons.brandsFontAwesome),
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Brand()));
@@ -141,23 +148,37 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     leading: Icon(FontAwesomeIcons.percentage),
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Discount()));
                     },
                   ),
                   ListTile(
+                    title: Text("Products", style: GoogleFonts.roboto(
+                      color: Colors.black,
+                    ),
+                    ),
+                    leading: Icon(FontAwesomeIcons.cube),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Product()));
+                    },
+                  ),
+
+                  ListTile(
                     title: Text("Unit", style: GoogleFonts.roboto(
                       color: Colors.black,
                     ),
                     ),
-                    leading: Icon(Icons.ad_units_outlined),
+                    leading: Icon(FontAwesomeIcons.legal),
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Units()));
+                              builder: (context) => Tax()));
 
                     },
                   ),
@@ -170,7 +191,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 leading: Icon(FontAwesomeIcons.handshake),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => Suppliers()));
@@ -183,7 +204,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 leading: Icon(FontAwesomeIcons.calculator),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => Purchase()));
@@ -205,7 +226,13 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     ),
                     leading: Icon(FontAwesomeIcons.cartShopping),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Sales()));
+
+                    },
                   ),
                   ListTile(
                     title: Text("Quotations", style: GoogleFonts.roboto(
@@ -214,7 +241,13 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     leading: Icon(Icons.format_quote_outlined),
 
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Quotation()));
+
+                    },
                   ),
                 ],
               ),
@@ -260,7 +293,12 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     ),
                     leading: Icon(FontAwesomeIcons.moneyBill),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Expenses()));
+                    },
                   ),
                   ListTile(
                     title: Text("Categories", style: GoogleFonts.roboto(
@@ -268,7 +306,12 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     ),
                     leading: Icon(Icons.category),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Category_aa()));
+                    },
                   ),
                 ],
               ),
@@ -286,7 +329,13 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ),
                 leading: Icon(Icons.warehouse),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Warehouse()));
+
+                },
               ),
               ListTile(
                 title: Text("Inventory", style: GoogleFonts.roboto(
@@ -294,7 +343,13 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ),
                 leading: Icon(Icons.inventory),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Inventory()));
+
+                },
               ),
               ListTile(
                 title: Text("Settings", style: GoogleFonts.roboto(
@@ -302,7 +357,12 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ),
                 leading: Icon(Icons.settings),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Settings()));
+                },
               ),
             ],
           ),

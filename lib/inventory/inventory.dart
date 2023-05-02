@@ -5,19 +5,21 @@ import 'package:pos/home/drawer.dart';
 import 'package:pos/items/brand/add_brand.dart';
 import 'package:pos/user/edit_profile.dart';
 
+import 'add_inventory.dart';
+
 enum MenuItem{
   item1,
   item2,
 }
 
-class Brand extends StatefulWidget {
-  const Brand({Key? key}) : super(key: key);
+class Inventory extends StatefulWidget {
+  const Inventory({Key? key}) : super(key: key);
 
   @override
-  State<Brand> createState() => _BrandState();
+  State<Inventory> createState() => _InventoryState();
 }
 
-class _BrandState extends State<Brand> {
+class _InventoryState extends State<Inventory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class _BrandState extends State<Brand> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "Brand",
+          "Inventory",
           style: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 25,
@@ -140,87 +142,124 @@ class _BrandState extends State<Brand> {
 
                 ],
               ),
-
-              DataTable(
-                  columnSpacing: 11,
-                  headingRowColor: MaterialStateColor.resolveWith((states) {return Colors.blue;},),
-                  // border: TableBorder(
-                  //   borderRadius: BorderRadius.circular(20),
-                  // ),
-                  dividerThickness: 3,
-                  showBottomBorder: true,
-                  columns: [
-                    DataColumn(
-                      label: Text('Title',style: GoogleFonts.roboto(
+              SizedBox(
+                height: 20,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: DataTable(
+                    columnSpacing: 21,
+                    headingRowColor: MaterialStateColor.resolveWith((states) {return Colors.blue;},),
+                    // border: TableBorder(
+                    //   borderRadius: BorderRadius.circular(20),
+                    // ),
+                    dividerThickness: 3,
+                    showBottomBorder: true,
+                    columns: [
+                      DataColumn(
+                        label: Text('Product',style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold,
                             color: Colors.white
                         ),
+                        ),
                       ),
-                    ),
-                    DataColumn(
-                      label: Text('No. of Products',style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      DataColumn(
+                        label: Text('Stock Availability',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
                       ),
+                      DataColumn(
+                        label: Text('Cost Value',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
                       ),
-                    ),
-                    DataColumn(label: Text(""),),
-                  ],
-                  rows: [
+                      DataColumn(
+                        label: Text('Sale Value',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text('Whole Sale Value',style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
+                      ),
 
-                    DataRow(cells: [
-                      DataCell(Text('Ace'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('3'),
-                      ),
-                      ),DataCell( Row(
-    children: [
-    IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-    SizedBox(
-    width: 5,
-    ),
-    IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-    ],
-    ),),]),
-                    DataRow(cells: [
-                      DataCell(Text('Hush Puppies'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('4'),
-                      ),
-                      ),
-                      DataCell( Row(
-                        children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-                        ],
-                      ),),
+                      DataColumn(label: Text(""),),
+                    ],
+                    rows: [
+
+                      DataRow(cells: [
+                        DataCell(Text('Dewan'),
+                        ),
+                        DataCell(Text('352 bags 47 killo'),
+                        ),
+                        DataCell(Text('Rs 176822.9'),
+                        ),
+                        DataCell(Text('Rs 179999.9'),
+                        ),
+                        DataCell(Text('Rs 176822.9'),
+                        ),
+                        DataCell( Row(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
+                          ],
+                        ),),]),
+                      DataRow(cells: [
+                        DataCell(Text('Powder'),
+                        ),
+                        DataCell(Text('52 bags 100 killo'),
+                        ),
+                        DataCell(Text('Rs 16222.9'),
+                        ),
+                        DataCell(Text('Rs 16999.9'),
+                        ),
+                        DataCell(Text('Rs 16222.9'),
+                        ),
+                        DataCell( Row(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
+                          ],
+                        ),),]),
+                      DataRow(cells: [
+                        DataCell(Text('Rice'),
+                        ),
+                        DataCell(Text('100 bags 47 killo'),
+                        ),
+                        DataCell(Text('Rs 176822.9'),
+                        ),
+                        DataCell(Text('Rs 179999.9'),
+                        ),
+                        DataCell(Text('Rs 176822.9'),
+                        ),
+                        DataCell( Row(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
+                          ],
+                        ),),]),
+
+
                     ]),
-                    DataRow(cells: [
-                      DataCell(Text('Engine'),
-                      ),
-                      DataCell(Padding(
-                        padding: const EdgeInsets.only(left: 30),
-                        child: Text('7'),
-                      ),
-                      ),
-                      DataCell( Row(
-                        children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.edit),color: Colors.blue,),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.blue,),
-                        ],
-                      ),),
-                    ]),
-                  ]),
+              ),
             ],
           )
       ),
@@ -229,7 +268,7 @@ class _BrandState extends State<Brand> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Add_brand()));
+                  builder: (context) => Add_Inventory()));
 
         },
         backgroundColor: Colors.blue,

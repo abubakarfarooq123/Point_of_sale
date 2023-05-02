@@ -7,17 +7,19 @@ import 'package:pos/user/edit_profile.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+import '../staff/add_customers.dart';
+
 enum MenuItem {
   item1,
   item2,
 }
 
-class Add_Purchase extends StatefulWidget {
+class Add_Quotation extends StatefulWidget {
   @override
-  State<Add_Purchase> createState() => _Add_PurchaseState();
+  State<Add_Quotation> createState() => _Add_QuotationState();
 }
 
-class _Add_PurchaseState extends State<Add_Purchase> {
+class _Add_QuotationState extends State<Add_Quotation> {
   List<String> amount = ['Amount', 'Percentage'];
   String selected = '';
   var setvalue;
@@ -47,7 +49,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          "New Purchase",
+          "New Quotation",
           style: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 25,
@@ -127,7 +129,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                           width: 10,
                         ),
                         Text(
-                          "Basic Information",
+                          "Header",
                           style: GoogleFonts.roboto(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -144,7 +146,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                       left: 10,
                     ),
                     child: Text(
-                      "Prchase No.",
+                      "Quote No.",
                       style:
                           GoogleFonts.roboto(color: Colors.black, fontSize: 16),
                     ),
@@ -153,7 +155,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                     padding: const EdgeInsets.all(14.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Purchase',
+                        hintText: 'Quotation',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey, width: 1),
                           borderRadius: BorderRadius.circular(15),
@@ -169,7 +171,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                             left: 10,
                           ),
                           child: Text(
-                            "Purchase Date",
+                            "Quotation Date",
                             style: GoogleFonts.roboto(
                                 color: Colors.black, fontSize: 16),
                           ),
@@ -181,7 +183,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                             left: 10,
                           ),
                           child: Text(
-                            "Due Date",
+                            "Quotation Valid Date",
                             style: GoogleFonts.roboto(
                                 color: Colors.black, fontSize: 16),
                           ),
@@ -256,28 +258,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
-                      "Warehouse",
-                      style:
-                          GoogleFonts.roboto(color: Colors.black, fontSize: 16),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(14.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Warehouse',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey, width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      "Suppliers",
+                      "Customer",
                       style:
                           GoogleFonts.roboto(color: Colors.black, fontSize: 16),
                     ),
@@ -303,7 +284,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                                     padding: const EdgeInsets.only(
                                         top: 10, left: 35),
                                     child: Text(
-                                      'Please choose Supplier',
+                                      'Please Choose Customer',
                                       style: TextStyle(
                                         color: Colors.black54,
                                       ),
@@ -337,7 +318,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                Add_Suppliers()));
+                                                Add_Customer()));
                                   },
                                   icon: Icon(
                                     FontAwesomeIcons.userPlus,
@@ -925,6 +906,22 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                           ),
                           DataColumn(
                             label: Text(
+                              'Discount',
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          DataColumn(
+                            label: Text(
+                              'Tax',
+                              style: GoogleFonts.roboto(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          DataColumn(
+                            label: Text(
                               'Sub Total',
                               style: GoogleFonts.roboto(
                                   fontWeight: FontWeight.bold,
@@ -937,20 +934,27 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                             DataCell(Text('Wash Powder')),
                             DataCell(Text('10')),
                             DataCell(Text('501')),
+                            DataCell(Text('20')),
+                            DataCell(Text('20')),
                             DataCell(Text('540')),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('Powder')),
-                            DataCell(Text('4')),
-                            DataCell(Text('5232')),
-                            DataCell(Text('6000')),
+                            DataCell(Text('2')),
+                            DataCell(Text('550')),
+                            DataCell(Text('40')),
+                            DataCell(Text('20')),
+                            DataCell(Text('600')),
                           ]),
                           DataRow(cells: [
-                            DataCell(Text('Buscuit')),
-                            DataCell(Text('12')),
-                            DataCell(Text('2000')),
-                            DataCell(Text('3000')),
+                            DataCell(Text('Wash Powder')),
+                            DataCell(Text('10')),
+                            DataCell(Text('501')),
+                            DataCell(Text('540')),
+                            DataCell(Text('501')),
+                            DataCell(Text('540')),
                           ]),
+
                         ]),
                   ),
                   SizedBox(
@@ -1332,9 +1336,7 @@ class _Add_PurchaseState extends State<Add_Purchase> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: 10
-                      ),
+                      SizedBox(width: 10),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 15, top: 20),

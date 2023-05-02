@@ -500,7 +500,7 @@ class _CustomerState extends State<Customer> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => Add_Customer()));
