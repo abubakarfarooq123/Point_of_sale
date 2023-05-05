@@ -6,6 +6,7 @@ import 'package:pos/items/brand/brand.dart';
 import 'package:pos/items/category.dart';
 import 'package:pos/items/discount/discount.dart';
 import 'package:pos/purchase/purchase.dart';
+import 'package:pos/return/sale_return.dart';
 import 'package:pos/sales/quotation.dart';
 import 'package:pos/staff/customer.dart';
 import 'package:pos/staff/employee.dart';
@@ -16,6 +17,7 @@ import 'package:pos/items/tax/tax.dart';
 import '../category/category.dart';
 import '../expenses/expenses.dart';
 import '../inventory/inventory.dart';
+import '../return/purcahse_return.dart';
 import '../sales/sales.dart';
 import '../settings/setting.dart';
 import '../warehouse/warehouse.dart';
@@ -266,7 +268,12 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     ),
                     leading: Icon(Icons.compare_arrows_outlined),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Sales_Return()));
+                    },
                   ),
                   ListTile(
                     title: Text("Purchase Return", style: GoogleFonts.roboto(
@@ -274,7 +281,13 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     ),
                     leading: Icon(Icons.compare_arrows_outlined),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Purchase_Return()));
+
+                    },
                   ),
                 ],
               ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/home/drawer.dart';
+import 'package:pos/sales/add_sales.dart';
 import 'package:pos/user/edit_profile.dart';
 
 import 'add_quotation.dart';
@@ -302,7 +303,7 @@ class _SalesState extends State<Sales> {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Add_Quotation()));
+                  builder: (context) => Add_Sales()));
 
         },
         backgroundColor: Colors.blue,
